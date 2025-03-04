@@ -1,1 +1,14 @@
-* text=auto eol=lf
+# Forcer LF pour tous les fichiers Angular
+*.ts text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.scss text eol=lf
+
+# Forcer UTF-8 sans BOM
+*.ts text=auto
+*.html text=auto
+*.css text=auto
+*.json text=auto
+*.scss text=auto
+
