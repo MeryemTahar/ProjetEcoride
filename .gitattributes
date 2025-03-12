@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Forcer LF pour tous les fichiers Angular
 *.ts text eol=lf
 *.html text eol=lf
@@ -12,3 +13,6 @@
 *.json text=auto
 *.scss text=auto
 
+=======
+* text=auto eol=lf
+>>>>>>> 3ba37eb (Ajout du fichier .gitattributes pour forcer LF)
