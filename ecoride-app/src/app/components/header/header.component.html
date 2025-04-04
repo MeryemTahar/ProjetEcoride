@@ -1,1 +1,30 @@
-<p>header works!</p>
+
+    <nav class="navbar">
+      <a class="logo" routerLink="/" >
+        <img src="../../../assets/images/logo-ecoride.webp" alt="Logo Ecoride">
+      </a>
+    <ul class="nav-links">
+      <li><a routerLink="/search-ride">Rechercher un trajet</a></li>
+      <li><a routerLink="/publish-ride" >Publier un trajet</a></li>
+      <li class="profile-menu">
+        <a class="nav-links">Profil</a>
+        <ul class="dropdown">
+          <!-- Si l'utilisateur n'est pas connecté -->
+          <li *ngIf="!authService.isLoggedIn()">
+            <a routerLink="/login">Connexion</a>
+          </li>
+          <li *ngIf="!authService.isLoggedIn()">
+            <a routerLink="/register">Inscription</a>
+          </li>
+      
+          <!-- Si l'utilisateur est connecté -->
+          <li *ngIf="authService.isLoggedIn()">
+            <a routerLink="/profile">Mon Profil</a>
+          </li>
+          <li *ngIf="authService.isLoggedIn()">
+            <a (click)="authService.logout()">Déconnexion</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>

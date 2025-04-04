@@ -1,0 +1,9 @@
+@use '../styles/variables' as *;
+
+body {
+  background-image: url('../assets/images/page-accueil.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $text-color;
+  line-height: 1.6;
+}

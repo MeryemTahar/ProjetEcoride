@@ -1,1 +1,90 @@
-<p>home works!</p>
+<div class="searchbar">
+    <div class="search-fields">
+      <div class="dropdown">
+        <select id="departure" [(ngModel)]="departure" name="departure">
+          <option value="" disabled selected>Départ</option>
+          <option value="paris">Paris</option>
+          <option value="lyon">Lyon</option>
+          <option value="marseille">Marseille</option>
+          <option value="toulouse">Toulouse</option>
+          <option value="bon">Bon</option>
+          <option value="nantes">Nantes</option>
+          <option value="strasbourg">Strasbourg</option>
+          <option value="montpellier">Montpellier</option>
+          <option value="bordeaux">Bordeaux</option>
+          <option value="lille">Lille</option>
+          <option value="rennes">Rennes</option>
+          <option value="reims">Reims</option>
+          <option value="le havre">Le Havre</option>
+          <option value="saint-etinne">Saint-Etienne</option>
+          <option value="toulon">Toulon</option>
+          <option value="grenoble">Grenoble</option>
+          <option value="dijon">Dijon</option>
+          <option value="angers">Angers</option>
+          <option value="nîmes">Nîmes</option>
+          <option value="villeurbanne">Villeurbanne</option>
+          <button class="reset-btn" (click)="resetField('departure')">Réinitialiser</button>
+        </select>
+       
+      </div>
+  
+      <div class="dropdown">
+        <select id="destination" [(ngModel)]="destination" name="destination">
+          <option value="" disabled selected>Destination</option>
+          <option value="paris">Paris</option>
+          <option value="lyon">Lyon</option>
+          <option value="marseille">Marseille</option>
+          <option value="toulouse">Toulouse</option>
+          <option value="bon">Bon</option>
+          <option value="nantes">Nantes</option>
+          <option value="strasbourg">Strasbourg</option>
+          <option value="montpellier">Montpellier</option>
+          <option value="bordeaux">Bordeaux</option>
+          <option value="lille">Lille</option>
+          <option value="rennes">Rennes</option>
+          <option value="reims">Reims</option>
+          <option value="le havre">Le Havre</option>
+          <option value="saint-etinne">Saint-Etienne</option>
+          <option value="toulon">Toulon</option>
+          <option value="grenoble">Grenoble</option>
+          <option value="dijon">Dijon</option>
+          <option value="angers">Angers</option>
+          <option value="nîmes">Nîmes</option>
+          <option value="villeurbanne">Villeurbanne</option>
+          <button class="reset-btn" (click)="resetField('destination')">Réinitialiser</button>
+        </select>
+      </div>
+        
+      <div class="date-picker">
+        <input type="date" id="travel-date" [(ngModel)]="travelDate" name="travelDate">
+        
+      </div>
+  
+      <div class="passenger-dropdown">
+        <select id="passengers" [(ngModel)]="passengers" name="passengers">
+          <option value="" disabled selected>Passagers</option>
+          <option [value]="1">1 Passager</option>
+          <option [value]="2">2 Passagers</option>
+          <option [value]="3">3 Passagers</option>
+          <option [value]="4">4 Passagers</option>
+          <button class="reset-btn" (click)="resetField('passengers')">Réinitialiser</button>
+        </select>
+      </div>
+
+      <div class="button">
+        <button class="search-btn">Rechercher</button>
+
+        <button class="reset-btn" (click)="resetAllFields()">Tout réinitialiser</button>
+      </div>
+
+      <section class="presentation">
+        <p>Bienvenue sur Ecoride, votre allié pour des trajets plus verts et responsable.</p>
+        <p>Vous cherchez une manière simple et écologique de voyager ?</p>
+        <p>Ecoride est là pour transformer vos déplacements en une expérience pratique, conviviale et engagée.</p>
+        <p>Bien plus qu'une application de coviturage, c'est une communauté qui partage des valeurs de respect d'environnement et d'entraide.</p>
+        <p>Embarquez avec nous pour un avenir où chaque kilomètre compte pour la planète!</p>
+      </section>
+      
+    </div>
+  </div>
+  

@@ -12,37 +12,16 @@ const indexHtml = join(serverDistFolder, 'index.server.html');
 const app = express();
 const commonEngine = new CommonEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+// Servir les fichiers statiques depuis le dossier "browser"
+app.use(express.static(browserDistFolder, { maxAge: '1y' }));
 
-/**
- * Serve static files from /browser
- */
-app.get(
-  '**',
-  express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html'
-  }),
-);
-
-/**
- * Handle all other requests by rendering the Angular application.
- */
-app.get('**', (req, res, next) => {
+// Route catch-all : pour toutes les autres requêtes, effectuer le rendu SSR
+app.get('*', (req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
 
   commonEngine
     .render({
+      // "bootstrap" est la fonction exportée depuis main.server.ts
       bootstrap,
       documentFilePath: indexHtml,
       url: `${protocol}://${headers.host}${originalUrl}`,
@@ -53,10 +32,7 @@ app.get('**', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-/**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
- */
+// Démarrer le serveur si ce module est le point d'entrée principal
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {

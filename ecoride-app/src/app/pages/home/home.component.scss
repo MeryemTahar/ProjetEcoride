@@ -1,0 +1,104 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: transparent;
+    border-radius: 20px;
+  }
+  
+  /* Alignement des champs */
+  .search-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    left: 30%;
+    background: transparent;
+    border-radius: 20px;
+  }
+     
+  select, input[type="date"] {
+    width: 200px;
+    height: 34px;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background: white;
+    color: #333;
+  }
+  
+  select:hover, input[type="date"]:hover {
+    background: #82ac89;
+    color: white;
+    transition: 0.3s ease;
+  }
+
+  select:focus,
+  select:active {
+  background-color: white !important;
+  color: $text-color !important;
+}
+
+
+  /* Boutons */
+  button {
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    height: 34px;
+    padding: 5px 15px;
+    background: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+    .search-btn:hover {
+    background: #82ac89;
+    color: white;
+    transition: 0.3s ease;
+  }
+
+    .reset-btn {
+      margin-left: 40px;
+    }
+    .reset-btn:hover {
+    background: #82ac89;
+    color: white;
+    transition: 0.3s ease;
+  }
+  
+  /* Section de présentation */
+  .presentation {
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
+    width: 35%;
+    position: absolute;
+    left: 63%;
+    bottom: -580%;  // ajuste en fonction de ton rendu exact
+    transform: translateY(-50%);
+    line-height: 1.5;
+    letter-spacing: 1.6px;
+  }
+  
+  .presentation p {
+    margin-bottom: 10px;
+  }
+
+  :host {
+    position: relative;
+    display: block;
+  }

@@ -1,0 +1,22 @@
+footer {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.70); // Noir avec 85% d'opacité
+    backdrop-filter: blur(10px) saturate(120%); // Flou plus net et saturation renforcée
+    color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+    line-height: 1.5;
+    
+  }
+  
+  footer a:hover {
+    text-decoration: none;
+    color: #82ac89;
+  }

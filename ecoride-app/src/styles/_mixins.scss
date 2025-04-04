@@ -1,0 +1,16 @@
+// Mixin pour le responsive design
+@mixin responsive($size) {
+  @if $size == mobile {
+    @media (max-width: 600px) { @content; }
+  }
+  @else if $size == tablet {
+    @media (max-width: 900px) { @content; }
+  }
+}
+
+// Mixin pour le centrage flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

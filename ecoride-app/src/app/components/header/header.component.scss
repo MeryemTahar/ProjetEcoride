@@ -1,0 +1,110 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  background-color: transparent;
+  height: 200px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+.logo img {
+  width: 270px;
+  margin: 10px 0px 0px 10px;
+
+ 
+} 
+
+.nav-links {
+  list-style: none;
+  display: flex;
+
+  
+}
+
+.nav-links li {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  height : 34px;
+  margin: 0 10px;
+  padding: 5px 0px 0px 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: white;
+
+}
+
+.nav-links li:hover {
+  color: grey;
+  background-color: #82ac89;
+  transition: 0.3s ease;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  
+}
+
+.nav-links a:hover {
+  color: white;
+  
+}
+
+.profile-menu {
+  position: relative;
+  display: inline-block; /* Permet de positionner la liste déroulante en absolu */
+}
+
+/* La sous-liste déroulante */
+.profile-menu .dropdown {
+  display: none;           /* Caché par défaut */
+  position: absolute;      /* Se place par rapport au .profile-menu */
+  top: 102%;              /* Juste en dessous du bouton Profil */        
+  left: -5%;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 20px;
+  }
+
+/* Lien du sous-menu */
+.profile-menu .dropdown li a {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  
+  
+} 
+
+  /* Hover sur chaque item */ 
+    .profile-menu .dropdown li a:hover {
+    background-color: #82ac89;
+    color: white;
+    transition: 0.3s ease;
+  }
+
+/* Afficher le menu au survol de .profile-menu */
+.profile-menu:hover .dropdown {
+  display: inline-block;
+  
+}
+

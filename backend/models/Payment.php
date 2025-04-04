@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class Payment {
     private $pdo;
@@ -10,7 +11,11 @@ class Payment {
 
     // Ajouter un paiement
     public function addPayment($booking_id, $user_id, $amount, $payment_method, $payment_status = 'pending') {
-        $stmt = $this->pdo->prepare("INSERT INTO payments (booking_id, user_id, amount, payment_method, payment_status) VALUES (?, ?, ?, ?, ?)");
+        // Requête préparée pour éviter les injections SQL
+        $stmt = $this->pdo->prepare("
+            INSERT INTO payments (booking_id, user_id, amount, payment_method, payment_status) 
+            VALUES (?, ?, ?, ?, ?)
+        ");
         return $stmt->execute([$booking_id, $user_id, $amount, $payment_method, $payment_status]);
     }
 

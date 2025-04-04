@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class Vehicle {
     private $pdo;
@@ -24,13 +25,20 @@ class Vehicle {
 
     // Ajouter un véhicule avec type (thermique ou électrique)
     public function addVehicle($brand, $model, $year, $license_plate, $type, $color, $user_id) {
-        $stmt = $this->pdo->prepare("INSERT INTO vehicles (brand, model, year, license_plate, type, color, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            return $stmt->execute([$brand, $model, $year, $license_plate, $type, $color, $user_id]);
-        }
+        $stmt = $this->pdo->prepare("
+            INSERT INTO vehicles (brand, model, year, license_plate, type, color, user_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ");
+        return $stmt->execute([$brand, $model, $year, $license_plate, $type, $color, $user_id]);
+    }
 
     // Modifier un véhicule existant
-    public function updateVehicle($id, $brand, $model, $year, $license_plate, $type){
-        $stmt = $this->pdo->prepare("UPDATE vehicles SET brand = ?, model = ?, year = ?, license_plate = ?, type = ? WHERE id = ?");
+    public function updateVehicle($id, $brand, $model, $year, $license_plate, $type) {
+        $stmt = $this->pdo->prepare("
+            UPDATE vehicles 
+            SET brand = ?, model = ?, year = ?, license_plate = ?, type = ?
+            WHERE id = ?
+        ");
         return $stmt->execute([$brand, $model, $year, $license_plate, $type, $id]);
     }
 
@@ -40,4 +48,3 @@ class Vehicle {
         return $stmt->execute([$id]);
     }
 }
-?>
