@@ -14,4 +14,9 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class HeaderComponent {
   constructor(public authService: AuthService) {}
+
+  onLogout() {
+    this.authService.logout().subscribe(/* ... */);
+  }
 }
+

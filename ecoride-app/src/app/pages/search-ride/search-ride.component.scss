@@ -1,0 +1,276 @@
+/* Import de tes variables globales */
+@use '../../../styles/variables' as *;
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1.5rem;
+    background: rgba($third-color, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+  
+    .field {
+      display: flex;
+      flex-direction: column;
+      label {font-weight: bold; margin-bottom: 0.25rem; color: $primary-color; }
+      select { 
+        width: 200px;
+        height: 34px;
+        padding: 0.5rem;
+        border: 1px solid $secondary-color;
+        border-radius: 20px;
+        font-size: medium;
+        color: $text-color;
+      }
+
+      input[type="time"] {
+        width: 200px;
+        height: 34px;
+        padding: 0.5rem;
+        border: 1px solid $secondary-color;
+        border-radius: 20px;
+        color: $text-color;
+        font-size: medium;
+        background: $third-color;
+      }
+
+      input[type="date"] {
+        width: 200px;
+        height: 34px;
+        padding: 0.5rem;
+        border: 1px solid $secondary-color;
+        border-radius: 20px;
+        font-size: medium;
+        color: $text-color;
+        background: $third-color;
+      }
+    }
+    
+    .search-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem; /* Espace entre les deux boutons */
+      padding-inline: 1.5rem;
+  
+      .btn-search {
+        width: 200px;
+        height: 34px;
+        background: $third-color;
+        font-size: medium;
+        color: $text-color;
+        padding: 0.50rem 1.5rem;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover {
+          background: $primary-color;
+          color: $third-color;
+        }
+      }
+  
+      .btn-reset {
+        width: 200px;
+        height: 34px;
+        background: $third-color;
+        font-size: medium;
+        color: $text-color;
+        border: none;
+        padding: 0.50rem 1.5rem;
+        border-radius: 20px;
+        cursor: pointer;
+  
+        &:hover {
+          background: $primary-color;
+          color: $third-color;
+        }
+      }
+    }
+  }
+
+  .results-container {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+
+    aside.filters {
+      width: 220px;
+      background: rgba($third-color, 0.9);
+      padding: 1rem;
+      border-radius: 8px;
+
+      h4 {
+        margin-bottom: 0.75rem;
+        font-size: medium;
+        color: $primary-color;
+      }
+
+      .filter-group {
+        margin-bottom: 1rem;
+
+        strong {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: medium;
+          color: $secondary-color;
+        }
+ 
+        select {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid $secondary-color;
+          border-radius: 4px;
+          font-size: medium;
+          color: $text-color;
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.5rem;
+
+          input {
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .ride-list {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1rem;
+
+      .ride-card {
+        background: rgba($third-color, 0.8);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .ride-header {
+          background: $background-color; /* #f9f9f9f9 */
+          padding: 0.75rem 1rem;
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid $secondary-color;
+
+          .date {
+            font-weight: bold;
+            color: $primary-color;
+          }
+
+          .time-line {
+            .time {
+              margin: 0 0.25rem;
+              font-size: medium;
+              color: $text-color;
+            }
+            .dot {
+              font-size: medium;
+              color: $secondary-color;
+            }
+          }
+        }
+
+        .ride-main {
+          padding: 1rem;
+
+          .route {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-size: medium;
+            color: $text-color;
+          }
+
+          .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+
+            .driver-meta {
+              display: flex;
+              align-items: center;
+
+              .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+              }
+
+              .name {
+                font-weight: bold;
+                font-size: medium;
+                color: $text-color;
+                margin-right: 0.5rem;
+              }
+
+              .rating {
+                color: $secondary-color;
+              }
+            }
+
+            .seats,
+            .eco {
+              font-size: medium;
+              color: $secondary-color;
+            }
+
+            .price {
+              font-size: large;
+              color: $primary-color;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .ride-actions {
+          padding: 0.75rem 1rem;
+          border-top: 1px solid $background-color;
+          text-align: right;
+
+          button {
+            width: 200px;
+            height: 34px;
+            background: $third-color;
+            color: $text-color;
+            font-size: medium;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            &:hover {
+              background: $primary-color;
+              color: $third-color;
+            }
+          }
+        }
+      }
+    }
+    p.no-results {
+      color: $third-color;
+      font-size: large;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .results-container {
+      flex-direction: column;
+
+      aside.filters {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .ride-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+

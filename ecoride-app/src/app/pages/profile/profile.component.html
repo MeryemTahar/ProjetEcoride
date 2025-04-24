@@ -1,1 +1,70 @@
-<p>profil works!</p>
+<div class="profile-page">
+  <!-- En-tête de la page profil (avatar, nom, etc.) -->
+  <div class="profile-header">
+    <!-- Avatar -->
+    <img class="avatar" [src]="userAvatarUrl" alt="Photo de profil" />
+
+    <!-- Bloc user-status -->
+    <div class="user-status">
+      <h2>{{ userName }}</h2>
+      <p>Statut : {{ userStatus }}</p>
+      <p>Évaluation : {{ userRating }}</p>
+    </div>
+
+    <!-- Bloc vehicle-info -->
+    <div class="vehicle-info">
+      <p>Marque : {{ userVehicles.brand }}</p>
+      <p>Modèle : {{ userVehicles.model }}</p>
+      <p>Immatriculation : {{ userVehicles.licensePlate }}</p>
+    </div>
+  </div>
+  
+  <!-- Barre d'onglets -->
+  <ul class="profile-tabs">
+    <li
+      [class.active]="activeTab === 'apropos'"
+      (click)="activeTab = 'apropos'"
+    >
+      À propos de vous
+    </li>
+    <li
+      [class.active]="activeTab === 'compte'"
+      (click)="activeTab = 'compte'"
+    >
+      Compte
+    </li>
+  </ul>
+
+  <!-- Contenu des onglets -->
+  <div class="profile-content">
+    <!-- Onglet "À propos de vous" -->
+    <div *ngIf="activeTab === 'apropos'" class="tab-content">
+      <h3>Profil</h3>
+      <p (click)="verifyIdentity()">Vérifier pièce d’identité</p>
+
+      <h3>Modifier la photo de profil</h3>
+      <p (click)="editPhoto()">Changer la photo de profil</p>
+
+      <h3>Modifier les informations personnelles</h3>
+      <p (click)="editPersonalInfos()">Nom, e-mail, numéro de téléphone</p>
+
+      <h3>Véhicules</h3>
+      <p (click)="addVehicle()">Modifier un véhicule</p>
+    </div>
+
+    <!-- Onglet "Compte" -->
+    <div *ngIf="activeTab === 'compte'" class="tab-content">
+      <h3>Mot de passe</h3>
+      <p (click)="changePassword()">Modifier votre mot de passe</p>
+
+      <h3>Adresse postale</h3>
+      <p (click)="editAddress()">Gérer votre adresse</p>
+
+      <h3>Moyens de paiement</h3>
+      <p (click)="editPaymentMethods()">Cartes bancaires, PayPal, IBAN</p>
+
+      <h3>Virements et remboursements</h3>
+      <p (click)="refundSettings()">Gérer vos virements</p>
+    </div>
+  </div>
+</div>

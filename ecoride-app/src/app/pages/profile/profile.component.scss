@@ -1,0 +1,145 @@
+.profile-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+ }
+
+ .profile-header {
+  display: flex;                 /* 3 colonnes : avatar / user-status / vehicle-info */
+  justify-content: space-evenly; /* Espace réparti de façon égale */
+  align-items: center;           /* Aligne les 3 colonnes sur la même ligne */
+  gap: 20px;                     /* Espace horizontal entre colonnes */
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #82ac89;
+  }
+
+  /* Colonne user-status en vertical */
+  .user-status {
+    display: flex;          /* Active flex */
+    flex-direction: column; /* Empile h2 et p en colonne */
+    align-items: center;    /* Centre horizontalement */
+    text-align: center;     /* Aligne le texte */
+    gap: 5px;               /* Espace vertical entre h2 et p */
+
+    h2 {
+      margin: 0;           /* annule la marge par défaut */
+    }
+    p {
+      margin: 0;           /* annule la marge par défaut */
+      color: #666;
+    }
+  }
+
+  /* Colonne vehicle-info en vertical */
+  .vehicle-info {
+    display: flex;          
+    flex-direction: column; /* Empile les <p> en colonne */
+    align-items: center;    
+    text-align: center;
+    gap: 5px;
+
+    p {
+      margin: 0;
+      color: #666;
+    }
+  }
+}
+
+
+/* Barre d'onglets */
+.profile-tabs {
+  width: 860px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+
+
+  li {
+    width: 430px;
+    text-align: center;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &.active {
+      font-weight: bold;
+      color: #82ac89;
+      border-bottom: 3px solid #82ac89;
+    }
+
+    &:hover {
+      background-color: #82ac89 (0, 0,0, 0.4);
+    }
+  }
+}
+
+.profile-content {
+  .tab-content {
+    margin-top: 20px;
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      cursor: pointer;
+      color: #007bff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.tab-content {
+  animation: fadeSlideIn 300ms forwards;
+}
+
+/* Conteneur principal, scindé en 2 colonnes */
+.profile-split {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+
+  .tab-content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+
+    /* Optionnel: ombre légère */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* Colonne masquée quand l'onglet n'est pas actif */
+  .hidden {
+    display: none;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

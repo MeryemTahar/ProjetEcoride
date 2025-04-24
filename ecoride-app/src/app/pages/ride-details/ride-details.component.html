@@ -1,1 +1,94 @@
-<p>details-trajet works!</p>
+<div class="ride-details-page">
+  <!-- Encart principal qui contient tout le contenu -->
+  <div class="ride-details-overlay">
+    
+    <!-- COLONNE DE GAUCHE -->
+    <div class="left-column">
+      
+      <!-- Trajet details -->
+      <section class="trip-details">
+        <h3>Paris → Lyon</h3>
+        <p>Date : 2025-04-21 | Heure : 09:30</p>
+        <p>Places restantes : 3</p>
+        <p>Prix : 25 crédits</p>
+        <p>Écologique ? Oui (voiture électrique)</p>
+      </section>
+      
+      <section class="driver-info">
+        <h3>Inofs Conducteur</h3>
+        <!-- Conteneur flex pour la photo + textes -->
+        <div class="driver-wrapper">
+          <div class="driver-photo">
+            <img src="assets/images/bob.png" alt="Photo du chauffeur" />
+          </div>
+          <div class="driver-details">
+            <p>Nom : Bob Martin</p>
+            <p>Note moyenne : 4.8 ★</p>
+            <p>Basée sur 12 avis</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="row-vehicle-prefs">
+        <section class="vehicle-info">
+          <h3>Infos voiture</h3>
+          <p>Marque : Tesla</p>
+          <p>Modèle : Model 3</p>
+          <p>Énergie : Électrique</p>
+          <p>Couleur : Noir</p>
+        </section>
+        
+        <section class="driver-preferences">
+          <h3>Préférences Conducteur</h3>
+          <ul>
+            <li>Non-fumeur</li>
+            <li>Musique relax</li>
+          </ul>
+        </section>
+      </div>
+      <!-- Bouton Participer -->
+      
+    </div>
+    
+    <!-- COLONNE DE DROITE : Avis passagers -->
+    <div class="right-column">
+      <section class="passenger-reviews">
+        <h3>Avis passagers</h3>
+
+        <!-- Exemple de bloc d'avis -->
+        <div class="review-card">
+          <strong>Alice Durand</strong>
+          <span class="rating">5 ★</span>
+          <p>Super trajet, chauffeur très sympa !</p>
+        </div>
+
+        <div class="review-card">
+          <strong>Franck Friard</strong>
+          <span class="rating">4 ★</span>
+          <p>Voiture confortable, je recommande.</p>
+        </div>
+      </section>
+
+      <div class="button-column">
+        <button class="participer-btn" (click)="onParticiperClick()">Participer</button>
+      </div>
+
+      <!-- Modal de confirmation -->
+<div class="backdrop" *ngIf="confirming">
+  <div class="modal">
+    <h3>Confirmer votre participation</h3>
+    <p><strong>Itinéraire :</strong> {{ ride.from }} → {{ ride.to }}</p>
+    <p><strong>Date :</strong> {{ ride.date }} à {{ ride.departureTime }}</p>
+    <p><strong>Prix (crédits) :</strong> {{ ride.credits }}</p>
+    <p><strong>Crédits restants :</strong> {{ userCredit }}</p>
+
+    <div class="modal-actions">
+      <button class="btn-confirm" (click)="confirmParticipation()">Confirmer</button>
+      <button class="btn-cancel" (click)="cancelConfirm()">Annuler</button>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>

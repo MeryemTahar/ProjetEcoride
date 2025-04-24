@@ -20,6 +20,7 @@ export class AuthService {
       { withCredentials: true }
     ).pipe(
       tap(response => {
+        console.log('Login response:', response);
         if (response.status === 'success') {
           this.accessToken = response.accessToken;
         }
@@ -71,6 +72,9 @@ export class AuthService {
 
   // Méthode pour vérifier si l'utilisateur est connecté
   isLoggedIn(): boolean {
+    //pour le test uniquiement en local
+    return true;
+    //pour le test en local et en ligne
     return this.accessToken !== null;
   }
 }

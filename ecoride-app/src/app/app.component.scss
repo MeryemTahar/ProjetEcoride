@@ -1,7 +1,9 @@
 @use '../styles/variables' as *;
 @use '../styles/mixins' as *;
 
-
+* {
+  box-sizing: border-box;
+}
 .searchbar {
   @include flex-center;
   background-color: $primary-color;

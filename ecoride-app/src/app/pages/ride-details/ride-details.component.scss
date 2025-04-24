@@ -1,0 +1,208 @@
+@use '../../../styles/variables' as *;
+
+.ride-details-page {
+  max-width: 1200px;      /* Ajuste selon la largeur souhaitée */
+  min-height: 500px;      /* Hauteur minimale pour l’effet maquette */
+  margin: 0 auto;
+  padding: 10px;
+  /* Fond semi-transparent si tu veux un effet "carte" */
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 20px; /* occupe toute la hauteur de la fenêtre */
+
+  .ride-details-overlay {
+    display: flex;   /* On place deux colonnes en flex */
+    gap: 1rem;       /* Espace horizontal entre la colonne gauche et la colonne droite */
+    padding: 5px;
+
+    .left-column,
+    .right-column {
+      flex: 1;       /* Chaque colonne occupe 50% de l'espace */
+    }
+
+    /* Titre commun : par exemple */
+    h3 {
+      margin-bottom: 1rem;
+      color: $primary-color; /* un marron/beige par ex. ou #82ac82 si tu veux le vert */
+    }
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Gérer les blocs d'avis à droite */
+    .passenger-reviews {
+      .review-card {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 5px;
+        
+        .rating {
+          margin-left: 25rem;
+          color: #ffa600;
+          font-weight: bold;
+        }
+      }
+    }  
+  }
+  }
+    .driver-info {
+      margin-bottom: 1.5rem;
+
+    
+      h3 {
+        color: $primary-color;
+        margin-bottom: 0.75rem;
+      }
+    
+      
+      .driver-wrapper {
+        display: flex;             
+        align-items: flex-start;
+        gap: 12rem;
+        
+        .driver-photo img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+     }
+   }
+
+    .row-vehicle-prefs {
+      display: flex;          
+      align-items: flex-start;        
+      gap: 1rem;                   
+    
+      /* Chaque section occupe la moitié de la largeur (ou ajus te selon tes préférences) */
+      .vehicle-info,
+      .driver-preferences {
+        flex: 1;
+        /* Tu peux ajouter des marges ou paddings spécifiques ici si nécessaire */
+        h3 {
+          color: $primary-color;
+          margin-bottom: 0.75rem;
+        }
+        p, li {
+          margin-bottom: 0.5rem;
+
+        }
+        ul {
+          padding-left: 1rem;
+
+        }
+      }
+    }
+
+    /* Bouton Participer */
+    .button-column {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      margin-top: 17rem;
+
+      .participer-btn {
+        width: 200px;
+        height: 34px;
+        background-color: #ffff; 
+        color: $text-color;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: $primary-color; 
+        color: $third-color;
+          
+        }
+      }
+    }
+  
+
+  /* Responsive pour passer en 1 colonne sur mobile */
+  @media (max-width: 768px) {
+    .ride-details-overlay {
+      flex-direction: column; /* la colonne gauche/droite passent l’une sous l’autre */
+    }
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;     /* plein écran */
+    height: 100%;    /* plein écran */
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;     /* centre verticalement */
+    justify-content: center; /* centre horizontalement */
+    padding: 1rem;           /* espace autour */
+    overflow: auto;          /* permet de scroller si besoin */
+    z-index: 1000;           /* par‑dessus tout le reste */
+  }
+  
+  .modal {
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    max-width: 90vw;      /* ne dépasse pas 90% de la largeur de la fenêtre */
+    width: 90%;         /* ou la largeur fixe que tu souhaites */
+    max-height: 600px;     /* ne dépasse pas 90% de la hauteur de la fenêtre */
+    overflow-y: auto;     /* scroll vertical interne si le contenu déborde */
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: $primary-color;
+      font-size: 1.25rem;
+      text-align: left;
+    }
+
+    p {
+      font-size: medium;
+      margin: 0.5rem 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+
+      button {
+        min-width: 100px;
+        height: 34px;
+        padding: 0.5rem 1rem;
+        border: 2px solid $primary-color;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .btn-cancel {
+        background: $third-color;
+        color: $text-color;
+
+        &:hover {
+          background: $primary-color;
+          color: $third-color;
+        }
+      }
+
+      .btn-confirm {
+        background: $third-color;
+        color: $text-color;
+
+        &:hover {
+          background: $primary-color;
+          color: $third-color;
+        }
+      }
+    }
+  }
+
+

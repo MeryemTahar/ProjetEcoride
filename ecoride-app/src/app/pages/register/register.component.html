@@ -1,1 +1,77 @@
-<p>inscription works!</p>
+<div class="register-page">
+    <div class="register-container">
+      <h2>Inscrivez-vous</h2>
+      <form (ngSubmit)="onRegister()">
+        <!-- Champ Prénom -->
+        <div class="form-group">
+          <label for="firstname">Prénom</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            [(ngModel)]="firstname"
+            placeholder="Votre prénom"
+            required
+          />
+        </div>
+  
+        <!-- Champ Nom -->
+        <div class="form-group">
+          <label for="lastname">Nom</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            [(ngModel)]="lastname"
+            placeholder="Votre nom"
+            required
+          />
+        </div>
+  
+        <!-- Champ Email -->
+        <div class="form-group">
+          <label for="email">Adresse mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="Votre email"
+            required
+          />
+        </div>
+  
+        <!-- Champ Mot de passe -->
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Votre mot de passe"
+            required
+          />
+        </div>
+  
+        <!-- Case à cocher (CGU) -->
+        <div class="form-group checkbox-group">
+          <label>
+            <input
+              type="checkbox"
+              name="acceptTerms"
+              [(ngModel)]="acceptTerms"
+              required
+            />
+            <p>En cochant cette case vous acceptez
+            <a class="a" routerLink="/mentions-legales"> les conditions générales de ventes</a>
+          </p>
+          </label>
+        </div>
+  
+        <!-- Bouton Valider -->
+        <button type="submit">Valider</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,11 +1,28 @@
-<form (ngSubmit)="onSubmit()">
-    <label>Email :</label>
-    <input type="text" [(ngModel)]="email" name="email" required />
-  
-    <label>Mot de passe :</label>
-    <input type="password" [(ngModel)]="password" name="password" required />
-  
-    <button type="submit">Se connecter</button>
+<div class="login-container">
+      <div class="login-form">
+          
+  <!-- Avatar ou image de l’utilisateur -->
+  <div class="avatar">
+<i class="fas fa-user-circle"></i>
+  </div>
+
+  <h2>Se Connecter :</h2>
+  <br>
+  <p>Continuer avec une adresse mail :</p>
+  <br>
+  <!-- Champs de connexion -->
+  <form (ngSubmit)="onLogin()">
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Votre email">
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe">
+    <button type="submit">Connexion</button>
   </form>
+
+  <p>Pas encore membre ?
+    <a class="a" routerLink="/register">Inscrivez-vous</a>
+  </p>
+
+</div>
+
+
   
   

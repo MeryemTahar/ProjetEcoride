@@ -1,0 +1,62 @@
+@use '../../../styles/variables' as *;
+
+.payment-page {
+    /* On prend toute la hauteur disponible (moins header/footer si besoin) */
+    min-height: calc(100vh - 200px); // ajuste 200px selon la hauteur de ton header+footer
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    
+    background: rgba(0, 0, 0, 0.5); 
+  }
+  
+  .payment-message {
+    color: $text-color;          /* texte blanc */
+    font-size: 2rem;         /* police plus grande, ajuste à ta convenance */
+    font-weight: bold;       /* un peu de graisse */
+    text-align: center;      /* centre le texte */
+    padding: 1rem 2rem;      /* un peu d’air autour du texte */
+    background: rgba($third-color, 0.95); /* optionnel : fond semi‑transparent */
+    border-radius: 40px;      /* coins arrondis */
+    border: 4px solid $primary-color; /* bordure */;
+  }
+  .confirmation-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 1s ease-out;
+
+    &.fading {
+      opacity: 0;
+    }
+
+    .check-icon {
+      font-size: 2rem;
+      color: $primary-color; /* ton vert écolo */
+      animation: pop 0.5s ease-out;
+    }
+
+    p {
+      margin: 0;
+      color: #000;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+
+
+@keyframes pop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}

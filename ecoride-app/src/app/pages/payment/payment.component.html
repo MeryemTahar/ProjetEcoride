@@ -1,1 +1,12 @@
-<p>paiement works!</p>
+<div class="payment-page">
+
+    <div
+    *ngIf="showMessage"
+    class="confirmation-banner"
+    [class.fading]="fading"
+  >
+  <div class="check-icon">✔</div>
+    <p class="payment-message">
+      Votre paiement a bien été pris en compte, bon voyage !
+    </p>
+  </div>

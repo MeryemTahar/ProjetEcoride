@@ -1,1 +1,126 @@
-<p>publication-trajet works!</p>
+<div class="publish-ride-page">
+  <h2>Publier un trajet</h2>
+
+  <div class="main-container">
+    <!-- Colonne de gauche : Formulaire de saisie -->
+    <div class="left-column">
+      <!-- On relie la soumission du formulaire à la méthode onSubmit() -->
+      <form (ngSubmit)="onSubmit()">
+
+        <!-- VILLE DE DÉPART -->
+        <div class="form-group">
+          <label for="departureCity">Départ</label>
+          <!-- On déclenche le recalcul quand l'utilisateur modifie la ville -->
+          <select id="departureCity"
+                  [(ngModel)]="departureCity"
+                  name="departureCity"
+                  (change)="onChangeCities()">
+            <option value="">Choisir une ville...</option>
+            <option *ngFor="let city of cityOptions" [value]="city">
+              {{ city }}
+            </option>
+          </select>
+        </div>
+
+        <!-- VILLE D'ARRIVÉE -->
+        <div class="form-group">
+          <label for="arrivalCity">Destination</label>
+          <select id="arrivalCity"
+                  [(ngModel)]="arrivalCity"
+                  name="arrivalCity"
+                  (change)="onChangeCities()">
+            <option value="">Choisir une ville...</option>
+            <option *ngFor="let city of cityOptions" [value]="city">
+              {{ city }}
+            </option>
+          </select>
+        </div>
+
+        <!-- DATE DE DÉPART -->
+        <div class="form-group">
+          <label for="departureDate">Date</label>
+          <input type="date"
+                 id="departureDate"
+                 [(ngModel)]="departureDate"
+                 name="departureDate" />
+        </div>
+
+        <!-- HEURE DE DÉPART -->
+        <div class="form-group">
+          <label for="departureTime">Heure</label>
+          <input type="time"
+                 id="departureTime"
+                 [(ngModel)]="departureTime"
+                 name="departureTime" />
+        </div>
+
+        <!-- NOMBRE DE PLACES -->
+        <div class="form-group">
+          <label for="seatsAvailable">Nombre de places</label>
+          <input type="number"
+                 id="seatsAvailable"
+                 [(ngModel)]="seatsAvailable"
+                 name="seatsAvailable"
+                 min="1"
+                 max="5" />
+        </div>
+
+        <!-- PRÉFÉRENCES (ex: fumeur, musique...) -->
+        <div class="form-group">
+          <label for="preferences">Préférences</label>
+          <textarea id="preferences"
+                    [(ngModel)]="preferences"
+                    name="preferences"
+                    placeholder="Ex: Non-fumeur, pas d'animaux, discussion OK...">
+          </textarea>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Colonne de droite : Affichage des calculs CO2 & Économies -->
+    <div class="right-column">
+      <div class="co2-box">
+        <h3>Calculez l'émission de CO₂ de votre trajet</h3>
+        <p>Émission estimée : {{ co2Emission }} kg de CO₂</p>
+      </div>
+
+      <div class="economies-box">
+        <h3>Calculez vos économies en covoiturage</h3>
+        <p>Économies estimées : {{ savingEuro }} €</p>
+      </div>
+         
+    <div class="form-field">
+      <label for="vehicle-section">Choisir un véhicule</label>
+      <select id="vehicle" [(ngModel)]="selectedVehicle" name="vehicle">
+        <option value="" disabled selected>Choisissez votre véhicule...</option>
+        <option *ngFor="let vehicle of vehicleOptions" [value]="vehicle.id">
+          {{ vehicle.brand }} - {{ vehicle.model }} ({{ vehicle.licensePlate }}) - {{ vehicle.type }}
+        </option>
+      </select>
+    </div>
+  </div>
+     <!-- fin right-column -->
+     
+</div>
+
+    <form (ngSubmit)="onSubmit()">
+      <!-- ... tous les champs du formulaire ... -->
+    
+      <div class="buttons-group">
+        <!-- Bouton de réinitialisation -->
+        <button type="button"
+                class="reset-button"
+                (click)="onResetForm()">
+          Réinitialiser
+        </button>
+    
+        <!-- Bouton de soumission du formulaire -->
+        <button type="submit" class="publish-button">
+          Publier le trajet
+        </button>
+      </div>
+    </form>
+  </div>
+
+

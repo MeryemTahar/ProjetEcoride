@@ -6,6 +6,7 @@ export const authGuardFn: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
+  console.log('Authguard déclanché, isLoggedIn ?' , authService.isLoggedIn());
   // Utilise isLoggedIn() pour vérifier le statut
   if (authService.isLoggedIn()) {
     return true;
@@ -13,4 +14,5 @@ export const authGuardFn: CanActivateFn = (route, state) => {
     // Redirige vers la page de login si l'utilisateur n'est pas connecté
     return router.parseUrl('/login');
   }
+
 };

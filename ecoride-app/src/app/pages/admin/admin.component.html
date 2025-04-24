@@ -1,1 +1,54 @@
-<p>admin works!</p>
+<div class="admin-page">
+  <h1>Tableau de bord administrateur</h1>
+
+  <section class="stats-overview">
+    <div class="stat-card total-credits">
+      <h2>Total des crédits gagnés</h2>
+      <br>
+      <p class="bignumber">{{ totalCredits }}</p>
+    </div>
+    <div class="tile-chart">
+      <h2>Covoiturages par jour</h2>
+      <canvas #ridesCanvas id="rideCanvas"></canvas>
+    </div>
+    <div class="tile-chart">
+      <h2>Crédits gagnés par jour</h2>
+      <canvas #creditsCanvas id="creditsCanvas"></canvas>
+    </div>
+  </section>
+
+  <section class="accounts-section">
+    <h2>Gestion des comptes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Pseudo / Email</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let acc of accounts">
+          <td>{{ acc.role }}</td>
+          <td>{{ acc.pseudo }}</td>
+          <td>{{ acc.isSuspended ? 'Suspendu' : 'Actif' }}</td>
+          <td class="actions-cell">
+            <button
+              *ngIf="!acc.isSuspended"
+              class="btn-suspend"
+              (click)="suspendAccount(acc.id)">
+              Suspendre
+            </button>
+            <button
+              *ngIf="acc.isSuspended"
+              class="btn-reactivate"
+              (click)="unsuspendAccount(acc.id)">
+              Réactiver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,1 +1,128 @@
-<p>recherche-trajet works!</p>
+<main class="search-ride-page">
+
+  <!-- ============ BARRE DE RECHERCHE ============ -->
+  <section class="search-bar">
+    <!-- Ville de départ -->
+    <div class="field">
+      <label for="from">Départ</label>
+      <select id="from" [(ngModel)]="from">
+        <option value="" disabled selected>Ville de départ</option>
+        <option *ngFor="let city of cityOptions" [value]="city">{{ city }}</option>
+      </select>
+    </div>
+
+    <!-- Ville d'arrivée -->
+    <div class="field">
+      <label for="to">Destination</label>
+      <select id="to" [(ngModel)]="to">
+        <option value="" disabled selected>Ville d'arrivée</option>
+        <option *ngFor="let city of cityOptions" [value]="city">{{ city }}</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="travel-date">Date de départ</label>
+      <input type="date" id="travel-date" [(ngModel)]="date" name="date">
+    </div>
+
+    <!--Heure de départ-->
+    <div class="field">
+        <label for="departureTime">Heure de départ</label>
+        <input id="departureTime" type="time" [(ngModel)]="departureTime">
+      </div>
+
+    <!-- Passagers -->
+    <div class="field">
+      <label for="seats">Passagers</label>
+      <select id="seats" [(ngModel)]="seats">
+        <option [ngValue]="1">1</option>
+        <option [ngValue]="2">2</option>
+        <option [ngValue]="3">3</option>
+        <option [ngValue]="4">4</option>
+      </select>
+    </div>
+
+    <!-- Boutons Rechercher + Réinitialiser -->
+    <div class="search-actions">
+      <button class="btn-search" (click)="onSearch()">Rechercher</button>
+      <button type="button" class="btn-reset" (click)="onReset()">Réinitialiser</button>
+    </div>
+  </section>
+
+  <!-- ============ CONTENU PRINCIPAL ============ -->
+  <div class="results-container">
+
+    <!-- Sidebar des filtres -->
+    <aside class="filters">
+      <h4>Filtrer par</h4>
+      <div class="filter-group">
+        <strong>Écologique</strong>
+        <label><input type="checkbox" [(ngModel)]="filterEco" /> Voitures électriques</label>
+      </div>
+      <div class="filter-group">
+        <strong>Prix maximum (crédits)</strong>
+        <input type="number" min="0" [(ngModel)]="filterMaxPrice" placeholder="Ex : 30" />
+      </div>
+      <div class="filter-group">
+        <strong>Durée max (h)</strong>
+        <input type="number" min="0" [(ngModel)]="filterMaxDuration" placeholder="Ex : 5" />
+      </div>
+      <div class="filter-group">
+        <strong>Note min</strong>
+        <select [(ngModel)]="filterMinRating">
+          <option [ngValue]="0">—</option>
+          <option [ngValue]="1">1 ★+</option>
+          <option [ngValue]="2">2 ★+</option>
+          <option [ngValue]="3">3 ★+</option>
+          <option [ngValue]="4">4 ★+</option>
+          <option [ngValue]="5">5 ★</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Zone des cartes de trajets -->
+    <section class="ride-list">
+      <!-- Message quand pas de recherche encore lancée ou résultats vides -->
+      <p *ngIf="rides.length === 0" class="no-results">
+        Aucun covoiturage trouvé. Saisissez vos critères puis cliquez sur « Rechercher ».
+      </p>
+
+      <!-- Cartes de trajets filtrées -->
+      <article
+        *ngFor="let r of filteredRides"
+        class="ride-card"
+      >
+        <!-- En‑tête date + heures -->
+        <div class="ride-header">
+          <span class="date">{{ r.date }}</span>
+          <div class="time-line">
+            <span class="time">{{ r.departureTime }}</span>
+            <span class="dot">•</span>
+            <span class="time">{{ r.arrivalTime }}</span>
+          </div>
+        </div>
+
+        <!-- Corps de la carte -->
+        <div class="ride-main">
+          <div class="route">{{ r.from }} → {{ r.to }}</div>
+          <div class="meta">
+            <div class="driver-meta">
+              <img class="avatar" [src]="r.driverPhoto" alt="{{ r.driverName }}" />
+              <span class="name">{{ r.driverName }}</span>
+              <span class="rating">{{ r.rating }} ★</span>
+            </div>
+            <div class="seats">Places rest. : {{ r.seats }}</div>
+            <div class="eco" *ngIf="r.isElectric">♻️ Voyage écolo</div>
+            <div class="price">{{ r.price }} crédits</div>
+          </div>
+        </div>
+
+        <!-- Bouton Détail -->
+        <div class="ride-actions">
+          <button (click)="goToDetails(r)">Détail</button>
+        </div>
+      </article>
+    </section>
+  </div>
+</main>
+

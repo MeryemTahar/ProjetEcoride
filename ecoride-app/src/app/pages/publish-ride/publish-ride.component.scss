@@ -1,0 +1,138 @@
+.publish-ride-page {
+  /* Dimensions globales pour se rapprocher de ta maquette */
+  max-width: 1200px;      /* Ajuste selon la largeur souhaitée */
+  min-height: 600px;      /* Hauteur minimale pour l’effet maquette */
+  margin: 0 auto;
+  padding: 10px;
+  /* Fond semi-transparent si tu veux un effet "carte" */
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .main-container {
+    display: flex;
+    align-items: flex-start;  /* Les items seront alignés en haut */
+    gap: 30px;                /* Espace horizontal entre colonnes */
+  }
+
+  /* Colonne gauche (formulaire) */
+  .left-column {
+    flex: 1; /* Permet de prendre de la place, si tu veux qu’elle soit plus étroite, 
+                mets par ex. flex: 0.7; ou flex: 0.8; */
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espace vertical entre les .form-group */
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      select,
+      input,
+      textarea {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  /* Colonne droite (CO₂ + Économies) */
+  .right-column {
+    flex: 1; /* Si tu veux deux colonnes de largeur similaire */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .co2-box {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 30px;
+    }
+    .economies-box {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      padding: 10px;
+      margin-top:55px;
+      h3 {
+        margin-top: 0;
+      }
+      p {
+        margin-bottom: 0; 
+      }
+    }
+    .form-field {
+      margin-top: 60px;
+      font-weight: bold;
+    }
+    label {
+      margin-right: 20px;
+    }
+
+    .select {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      padding: 10px;
+    }
+}
+
+  .buttons-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+    .publish-button {
+      background-color: white; /* Couleur d’exemple */
+      color: black;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+        background-color: #82ac89;
+        color: white;
+      }
+    }
+
+   .reset-button {
+    background-color: white; /* Couleur d’exemple */
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+      background-color: #82ac89;
+      color: white;
+    }
+   }
+
+   .form-group:last-of-type {
+    margin-bottom: 10px;
+   
+  }
+
+  
+}
+
+  
+
