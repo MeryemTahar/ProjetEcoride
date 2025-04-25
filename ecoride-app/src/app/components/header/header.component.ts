@@ -18,5 +18,12 @@ export class HeaderComponent {
   onLogout() {
     this.authService.logout().subscribe(/* ... */);
   }
+
+
+menuOpen = false;
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+  }
+
 }
 

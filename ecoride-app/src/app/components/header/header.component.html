@@ -1,8 +1,16 @@
 
     <nav class="navbar">
+      <!--Logo → Accueil-->
       <a class="logo" routerLink="/" >
         <img src="../../../assets/images/logo-ecoride.webp" alt="Logo Ecoride">
       </a>
+
+        <!-- Bouton burger (mobile) -->
+  <button class="burger" (click)="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+
+      <!--Menu de navigation-->
     <ul class="nav-links">
       <li><a routerLink="/search-ride">Rechercher un trajet</a></li>
       <li><a routerLink="/publish-ride" >Publier un trajet</a></li>
