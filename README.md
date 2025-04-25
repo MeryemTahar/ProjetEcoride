@@ -1,59 +1,48 @@
-# EcorideApp
+# EcoRideApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.2.
+**EcoRide** est une application web développée dans le cadre du projet d’évaluation du titre professionnel *Développeur Web et Web Mobile*. Cette plateforme de covoiturage écoresponsable a pour objectif de favoriser les trajets partagés en voiture, en mettant en avant les véhicules électriques et en optimisant l’expérience utilisateur.
 
-## Development server
+## Contexte du projet
 
-To start a local development server, run:
+La startup EcoRide souhaite proposer une solution digitale innovante et engagée dans la réduction de l'empreinte carbone des déplacements. Le projet consiste à développer une application web complète, du front-end au back-end, intégrant une base de données relationnelle et NoSQL, ainsi que le déploiement final de la solution.
+
+---
+
+## Technologies utilisées
+
+- **Angular** 19.2.2 – Framework principal pour le front-end
+- **TypeScript**, **HTML5**, **CSS3**
+- **Node.js / Express** (optionnel pour le back-end)
+- **Base de données** : MySQL / MongoDB
+- **Déploiement** : Vercel / Fly.io
+- **Gestion de projet** : Trello
+
+---
+
+## Installation & Lancement en local
+
+### Prérequis
+
+- Node.js & npm installés
+- Angular CLI installé : `npm install -g @angular/cli`
+
+### Lancer le serveur de développement
 
 ```bash
+npm install
 ng serve
 ```
+## Déploiement
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+L'application est actuellement en cours de développement.  
+Le déploiement sera réalisé via Fly.io, dès que les fonctionnalités principales seront finalisées.
 
-## Code scaffolding
+ Un lien vers l'application en ligne sera ajouté prochainement.  
+ **Dépôt GitHub** : https://github.com/MeryemTahar/ProjetEcoride 
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+## Statut actuel
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Projet en cours – fonctionnalités front-end principales en cours de développement
+- Structure du projet Angular installée
+- Intégration des premières User Stories : US1 (accueil), US2 (menu), US3 (formulaire de recherche)
